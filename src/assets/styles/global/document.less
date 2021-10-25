@@ -1,0 +1,26 @@
+@import 'font';
+
+html, body {
+  height: 100%;
+  outline: none;
+  font-size: theme('fontSize[base]');
+  color: theme('colors[positive-800]');
+  background-color: theme('colors[negative-600]');
+  -webkit-tap-highlight-color:  rgba(255, 255, 255, 0);
+  font-family: DDin, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
+  'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
+  'Noto Color Emoji';
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+// The root element of the application,
+// change by the actual application preference.
+#app {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
