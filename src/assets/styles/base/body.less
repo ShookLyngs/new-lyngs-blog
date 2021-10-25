@@ -1,62 +1,37 @@
-@body-x: 1.25rem;
-@body-y: 1.25rem;
-
 @layer utilities {
+  --body-spacing-x: 1.25rem;
+  --body-spacing-y: 1.25rem;
+
   @variants responsive {
     /* body */
     .body {
-      padding: @body-y @body-x;
+      padding: var(--body-spacing-y) var(--body-spacing-x);
     }
     .body-x {
-      padding-left: @body-x;
-      padding-right: @body-x;
+      padding-left: var(--body-spacing-x);
+      padding-right: var(--body-spacing-x);
     }
     .body-y {
-      padding-top: @body-y;
-      padding-bottom: @body-y;
+      padding-top: var(--body-spacing-y);
+      padding-bottom: var(--body-spacing-y);
     }
     .body-left {
-      padding-left: @body-x;
+      padding-left: var(--body-spacing-x);
     }
     .body-right {
-      padding-right: @body-x;
+      padding-right: var(--body-spacing-x);
     }
     .body-top {
-      padding-top: @body-y;
+      padding-top: var(--body-spacing-y);
     }
     .body-bottom {
-      padding-bottom: @body-y;
-    }
-
-    /* body-lg */
-    .body-lg {
-      @apply px-3 py-4 xl:p-8;
-    }
-    .body-lg-x {
-      @apply px-3 xl:px-8;
-    }
-    .body-lg-y {
-      @apply py-4 xl:py-8;
-    }
-
-    /* body-xl */
-    .body-xl {
-      @apply px-3 py-4 xl:px-16 xl:py-8;
-    }
-
-    /* extended padding */
-    .px-0 {
-      padding-left: 0;
-      padding-right: 0;
+      padding-bottom: var(--body-spacing-y);
     }
 
     /* container */
     body {
       .content {
         width: 1280px;
-      }
-      .breaker-content {
-        width: (700/16 + (@body-x * 2));
       }
     }
   }

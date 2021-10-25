@@ -1,22 +1,19 @@
 <template>
-  <scrollbar
-    class="flex-auto flex flex-col"
-    wrap-class="flex-auto flex flex-col"
-    view-clas="flex-auto flex flex-col"
-  >
+  <scrollbar class="flex-auto flex" wrap-class="flex-auto flex flex-col" view-clas="flex-auto flex flex-col">
+    <welcome-header />
     <div v-for="item in 100" :key="item">{{ item }}</div>
   </scrollbar>
 </template>
 
 <script>
-  // import ResizeObserver from '@/components/resize-observer.vue';
   import Scrollbar from '@/components/scrollbar';
+  import WelcomeHeader from './components/header.vue';
 
   export default {
     name: 'welcome-index',
     components: {
-      // ResizeObserver,
       Scrollbar,
+      WelcomeHeader,
     },
     setup() {
       function onResize(rect) {

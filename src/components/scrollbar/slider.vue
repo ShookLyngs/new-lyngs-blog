@@ -143,7 +143,7 @@
         currentWrapper[currentBar.scrollDirection] = positionPercentage * currentWrapper[currentBar.scrollSize] / 100;
       }
       function onGlobalMouseUp() {
-        dragging.value = true;
+        dragging.value = false;
         store[bar.value.axis] = 0;
         removeGlobalListeners();
 

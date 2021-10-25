@@ -30,7 +30,6 @@
       const height = ref(0);
       function onSlotUpdated() {
         const element = findDOMNode(defaultSlot.value);
-        console.log(element);
 
         if (element !== currentElement) {
           destroyObserver();
