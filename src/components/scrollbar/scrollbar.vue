@@ -209,8 +209,10 @@
 
         wrapper,
         wrapperStyle,
-        updateWrapperSize,
         scrollTo,
+
+        wrapperSize,
+        updateWrapperSize,
         onWrapperScroll,
 
         view,
