@@ -6,7 +6,7 @@
       <div class="flex flex-auto bg-negative-900">
         <div class="mx-auto w-full xl:content flex justify-between">
           <!-- Description -->
-          <div class="w-full body-x pb-[10vh] self-end">
+          <div class="w-full body-x pt-[70px] pb-[10vh] self-end">
             <div class="h-[70px]" />
             <!-- Avatar -->
             <div class="mb-16 w-28 h-28 bg-positive-500" />

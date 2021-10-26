@@ -5,7 +5,7 @@
         <div class="w-5 h-5 mr-2 rounded-full bg-theme-500" />
         <div>
           <div class="h-5 flex items-center">LyngsBlog</div>
-          <div class="mt-1 text-xs text-negative-400">Copyright ©{{ range }} lyngs.top</div>
+          <div class="mt-1 text-xs text-positive-100">Copyright ©{{ range }} lyngs.top</div>
           <div class="my-3 w-10 h-px bg-positive-400" />
           <a class="text-xs text-theme-300" href="https://beian.miit.gov.cn" target="_blank">桂ICP备18006093号-1</a>
         </div>
