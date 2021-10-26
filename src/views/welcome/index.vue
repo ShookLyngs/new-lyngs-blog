@@ -12,10 +12,10 @@
             <div class="mb-16 w-28 h-28 bg-positive-500" />
 
             <!-- Intro -->
-            <div class="text-4xl xl:text-6xl font-roboto font-bold select-none text-positive-900">
+            <div class="text-4xl xl:text-6xl font-bold select-none text-positive-900">
               I'm ShookLyngs,
             </div>
-            <div class="mt-1 text-xl xl:text-4xl font-roboto font-bold select-none text-positive-900">
+            <div class="mt-1 text-xl xl:text-4xl font-bold select-none text-positive-900">
               a web-based software developer.
             </div>
 
@@ -52,6 +52,10 @@
           <div class="xl:w-[40vw] welcome-background bg-cover bg-no-repeat bg-bottom bg-positive-500" />
         </div>
       </div>
+    </div>
+
+    <div>
+
     </div>
 
     <welcome-footer />
@@ -108,6 +112,6 @@
   }
 
   .button {
-    @apply body-x h-14 text-xl font-roboto font-bold transition cursor-pointer select-none;
+    @apply body-x h-14 text-xl font-bold transition cursor-pointer select-none;
   }
 </style>
