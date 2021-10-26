@@ -6,15 +6,16 @@
       <div class="flex flex-auto bg-negative-900">
         <div class="mx-auto w-full xl:content flex justify-between">
           <!-- Description -->
-          <div class="w-full body-x pt-[20vh] pb-[10vh] self-end">
+          <div class="w-full body-x pb-[10vh] self-end">
+            <div class="h-[70px]" />
             <!-- Avatar -->
             <div class="mb-16 w-28 h-28 bg-positive-500" />
 
             <!-- Intro -->
-            <div class="text-4xl xl:text-6xl font-roboto font-bold text-positive-900">
+            <div class="text-4xl xl:text-6xl font-roboto font-bold select-none text-positive-900">
               I'm ShookLyngs,
             </div>
-            <div class="mt-1 text-xl xl:text-4xl font-roboto font-bold text-positive-900">
+            <div class="mt-1 text-xl xl:text-4xl font-roboto font-bold select-none text-positive-900">
               a web-based software developer.
             </div>
 
@@ -48,7 +49,7 @@
           </div>
 
           <!-- Background image -->
-          <div class="xl:w-[40vw] welcome-background bg-positive-500 bg-bottom bg-cover" />
+          <div class="xl:w-[40vw] welcome-background bg-cover bg-no-repeat bg-bottom bg-positive-500" />
         </div>
       </div>
     </div>
