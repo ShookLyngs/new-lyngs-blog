@@ -9,6 +9,7 @@
   "dependencies": {
     "@lyngs/themer-vue": "^0.4.4",
     "color": "^4.0.1",
+    "dayjs": "^1.10.7",
     "less": "^4.1.2",
     "postcss-pxtorem": "^6.0.0",
     "resize-observer-polyfill": "^1.5.1",
