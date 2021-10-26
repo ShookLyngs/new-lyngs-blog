@@ -1,6 +1,6 @@
 <template>
   <div class="py-14 text-negative-700 bg-positive-700">
-    <div class="mx-auto w-full xl:content body-x">
+    <div class="mx-auto w-full xl:content body-x select-none">
       <div class="flex">
         <div class="w-5 h-5 mr-2 rounded-full bg-theme-500" />
         <div>
