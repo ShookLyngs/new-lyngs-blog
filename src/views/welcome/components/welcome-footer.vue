@@ -17,13 +17,13 @@
 <script>
   // Functions
   import { computed } from 'vue';
-  import createDay from 'dayjs';
+  import dayjs from 'dayjs';
 
   export default {
     name: 'welcome-footer',
     setup() {
       const start = 2020;
-      const now = createDay().year();
+      const now = dayjs().year();
       const range = computed(() => start === now ? start : `${start}-${now}`);
 
       return {

@@ -73,6 +73,12 @@
         default: false,
       },
 
+      // Provider
+      sharedKey: {
+        type: String,
+        default: void 0,
+      },
+
       // Slider
       disabledVertical: {
         type: Boolean,
@@ -229,7 +235,11 @@
         cancelOnScroll,
       };
 
-      createScrollbar({ state: shared });
+      createScrollbar({
+        key: props.sharedKey,
+        state: shared,
+      });
+
       return shared;
     },
   };
