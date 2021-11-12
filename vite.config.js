@@ -21,7 +21,6 @@ export default defineConfig({
   css: {
     postcss,
     preprocessorOptions: {
-      // Inject styles to global, try not to inject too many styles.
       less: {
         modifyVars: {
           hack: 'true; @import "@/assets/styles/global.less";',
