@@ -9,11 +9,7 @@
         @scroll="onWrapperScroll"
       >
         <resize-observer @resize="updateSizes">
-          <div
-            ref="view"
-            class="ls-scrollbar__view"
-            :class="viewClass"
-          >
+          <div ref="view" class="ls-scrollbar__view" :class="viewClass">
             <slot />
           </div>
         </resize-observer>
@@ -49,8 +45,9 @@
   import { useSlider } from './hooks/slider';
 
   // Components
-  import ResizeObserver from '@/components/resize-observer.vue';
   import Slider from './slider.vue';
+  import ResizeObserver from '@/components/resize-observer.vue';
+  import { useWrapper } from '@/components/scrollbar/hooks/wrapper';
 
   export default {
     name: 'scrollbar',
@@ -80,6 +77,10 @@
       },
 
       // Slider
+      disabledScroll: { // TODO
+        type: Boolean,
+        default: false,
+      },
       disabledVertical: {
         type: Boolean,
         default: false,
@@ -97,6 +98,9 @@
     },
     emits: [ 'scroll', 'update-wrapper-size' ],
     setup(props, { emit }) {
+      // Gutter
+      const { gutterWidth, updateGutterWidth } = useGutter();
+
       // Outer
       const outer = ref();
       const outerClass = computed(() => {
@@ -104,72 +108,28 @@
       });
 
       // Wrapper
-      const wrapper = ref();
-      const wrapperStyle = computed(() => {
-        if (!gutterWidth.value) return void 0;
-
-        return {
-          marginBottom: gutterWidth.value,
-          marginRight: gutterWidth.value,
-        };
-      });
-      function scrollTo(x, y) {
-        if (wrapper.value) {
-          wrapper.value.scrollTo(x, y);
-        }
-      }
-
-      const wrapperSize = ref(getWrapperSize());
-      function getWrapperSize() {
-        if (!wrapper.value) return void 0;
-
-        const {
-          scrollTop, scrollLeft, scrollHeight, scrollWidth,
-          clientHeight, clientWidth,
-        } = wrapper.value;
-        const {
-          top, right, bottom, left,
-          width, height,
-        } = wrapper.value.getBoundingClientRect();
-
-        return {
-          scrollTop, scrollLeft,
-          scrollHeight, scrollWidth,
-          clientHeight, clientWidth,
-          left, right, top, bottom,
-          height, width,
-        };
-      }
-      function updateWrapperSize() {
-        const oldHeight = wrapperSize.value?.scrollHeight;
-        wrapperSize.value = getWrapperSize();
-
-        if (props.keepPosition) {
-          const { scrollHeight, scrollTop, scrollLeft } = wrapperSize.value;
-          if (scrollHeight > oldHeight) {
-            const distance = scrollHeight - oldHeight;
-            scrollTo(scrollLeft, scrollTop + distance);
-          }
-        }
-      }
+      const {
+        wrapper, wrapperSize, wrapperStyle,
+        updateWrapperSize, scrollTo,
+      } = useWrapper({ props, gutterWidth });
       function onWrapperScroll() {
         updateWrapperSize();
+        updateSliderPosition();
 
-        const { scrollTop, scrollLeft, clientHeight, clientWidth } = wrapperSize.value;
-        sliderPosition.x = (scrollLeft * 100) / clientWidth;
-        sliderPosition.y = (scrollTop * 100) / clientHeight;
-
+        const { scrollTop, scrollLeft } = wrapperSize.value;
         triggerOnScroll({ scrollLeft, scrollTop });
       }
 
       // View
       const view = ref();
 
-      // Gutter width
-      const { gutterWidth, updateGutterWidth } = useGutter();
-
       // Slider position
       const sliderPosition = reactive({ x: 0, y: 0 });
+      function updateSliderPosition() {
+        const { scrollTop, scrollLeft, clientHeight, clientWidth } = wrapperSize.value;
+        sliderPosition.x = (scrollLeft * 100) / clientWidth;
+        sliderPosition.y = (scrollTop * 100) / clientHeight;
+      }
 
       // Slider size
       const { sliderSize, updateSliderSize } = useSlider({
@@ -247,7 +207,7 @@
 
 <style lang="less">
   @ls-scrollbar-padding-column: 4px;
-  @ls-scrollbar-width: 6px;
+  @ls-scrollbar-width: 8px;
 
   .ls-scrollbar {
     position: relative;
@@ -257,7 +217,7 @@
       overflow: scroll;
     }
     & &__thumb {
-      @apply transition bg-positive-800;
+      @apply border border-solid border-negative-400 transition bg-positive-800;
       position: relative;
       transition-property: opacity, height;
       border-radius: @ls-scrollbar-width;
