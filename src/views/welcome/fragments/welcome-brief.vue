@@ -33,11 +33,7 @@
           :source="article"
         />
 
-        <base-button
-          tag="a"
-          href="https://baidu.com"
-          class="mt-8 text-negative-900 bg-theme-500 hover:opacity-80 active:opacity-60"
-        >
+        <base-button tag="a" href="https://baidu.com" target="_blank" class="mt-8 text-negative-900 bg-theme-500 hover:opacity-80 active:opacity-60">
           Github profile
         </base-button>
       </div>

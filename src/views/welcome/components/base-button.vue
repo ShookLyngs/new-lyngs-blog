@@ -10,7 +10,11 @@
       },
     },
     setup(props, { slots }) {
-      return () => h(props.tag, { role: 'button', class: 'button' }, slots.default?.());
+      return () => h(
+        props.tag,
+        { class: 'button' },
+        slots.default?.()
+      );
     },
   };
 </script>
@@ -18,5 +22,8 @@
 <style lang="less" scoped>
   .button {
     @apply inline-block text-center align-middle body-x h-14 text-xl font-bold transition cursor-pointer select-none;
+  }
+  a.button {
+    @apply inline-flex justify-center items-center;
   }
 </style>

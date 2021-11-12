@@ -5,10 +5,8 @@
     view-clas="flex-auto flex flex-col"
   >
     <welcome-header />
-
     <welcome-intro />
     <welcome-brief />
-
     <welcome-footer />
   </scrollbar>
 </template>
