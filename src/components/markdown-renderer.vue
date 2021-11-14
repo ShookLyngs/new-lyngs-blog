@@ -20,7 +20,7 @@
       @apply text-lg xl:text-2xl;
 
       + p {
-        @apply mt-3;
+        @apply mt-4;
       }
     }
   }
