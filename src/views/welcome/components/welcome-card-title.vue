@@ -1,7 +1,7 @@
 <template>
   <div class="py-2 leading-none text-3xl xl:text-5xl font-bold select-none text-positive-900">
     <span>“</span>
-    <span class="mr-2 highlighted">{{ leading }}</span>
+    <span class="mr-2.5 highlighted">{{ leading }}</span>
     <span>{{ text }}</span>
     <span>”</span>
   </div>

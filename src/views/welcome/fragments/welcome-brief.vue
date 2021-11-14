@@ -1,9 +1,9 @@
 <template>
-  <div class="body-x xl:px-0 mx-auto w-full xl:content">
+  <welcome-container>
     <welcome-card-title leading="WHO" text="AM I" />
     <div class="h-8" />
 
-    <div class="body-x xl:px-11 py-8 xl:py-14 font-bold bg-negative-800">
+    <welcome-card class="font-bold bg-negative-800">
       <div class="flex flex-col xl:flex-row xl:items-center">
         <div class="text-center xl:text-left xl:flex-auto">
           <div class="title">Frontend</div>
@@ -22,9 +22,9 @@
           </div>
         </div>
       </div>
-    </div>
+    </welcome-card>
 
-    <div class="relative body-x xl:px-11 py-8 xl:py-14 bg-negative-900">
+    <welcome-card class="relative bg-negative-900">
       <div class="absolute top-0 right-0 w-1/2 xl:w-2/5 h-full bg-brief" />
 
       <div class="relative xl:w-3/5">
@@ -33,18 +33,20 @@
           :source="article"
         />
 
-        <base-button tag="a" href="https://baidu.com" target="_blank" class="mt-8 text-negative-900 bg-theme-500 hover:opacity-80 active:opacity-60">
+        <base-button link class="mt-12 filled" href="https://github.com/ShookLyngs" target="_blank">
           Github profile
         </base-button>
       </div>
-    </div>
-  </div>
+    </welcome-card>
+  </welcome-container>
 </template>
 
 <script>
   // Components
   import MarkdownRenderer from '@/components/markdown-renderer.vue';
+  import WelcomeContainer from '../components/welcome-container.vue';
   import WelcomeCardTitle from '../components/welcome-card-title.vue';
+  import WelcomeCard from '../components/welcome-card.vue';
   import BaseButton from '../components/base-button.vue';
 
   // Defines
@@ -60,7 +62,9 @@ I like to play with new frontend stuffs, and if you check my contributions on Gi
     name: 'welcome-brief',
     components: {
       MarkdownRenderer,
+      WelcomeContainer,
       WelcomeCardTitle,
+      WelcomeCard,
       BaseButton,
     },
     setup() {
