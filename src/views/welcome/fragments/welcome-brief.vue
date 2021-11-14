@@ -1,24 +1,24 @@
 <template>
   <welcome-container>
-    <welcome-card-title leading="WHO" text="AM I" />
+    <welcome-card-title leading="Identity" prefix="My" />
     <div class="h-8" />
 
     <welcome-card class="font-bold bg-negative-800">
       <div class="flex flex-col xl:flex-row xl:items-center">
         <div class="text-center xl:text-left xl:flex-auto">
           <div class="title">Frontend</div>
-          <div class="description text-positive-300">Web developer</div>
+          <div class="description text-positive-500">Web developer</div>
         </div>
         <div class="h-6 xl:h-0" />
         <div class="flex justify-center xl:justify-left">
           <div class="flex-auto text-center">
             <div class="title text-theme-500">3+</div>
-            <div class="description text-positive-300">Years experience</div>
+            <div class="description text-positive-500">Years experience</div>
           </div>
           <div class="w-6 xl:w-12" />
           <div class="flex-auto text-center">
             <div class="title text-theme-500">70+</div>
-            <div class="description text-positive-300">Project completed</div>
+            <div class="description text-positive-500">Project completed</div>
           </div>
         </div>
       </div>
@@ -33,7 +33,7 @@
           :source="article"
         />
 
-        <base-button link class="mt-12 filled" href="https://github.com/ShookLyngs" target="_blank">
+        <base-button link class="filled mt-12 w-full xl:w-auto" href="https://github.com/ShookLyngs" target="_blank">
           Github profile
         </base-button>
       </div>

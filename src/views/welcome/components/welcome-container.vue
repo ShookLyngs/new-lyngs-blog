@@ -1,5 +1,5 @@
 <template>
-  <div class="mb-52 body-x xl:px-0 mx-auto w-full xl:content">
+  <div class="pb-24 xl:pb-52 body-x xl:px-0 mx-auto w-full xl:content">
     <slot />
   </div>
 </template>

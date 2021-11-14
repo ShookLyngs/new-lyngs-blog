@@ -17,7 +17,7 @@
 <style lang="less">
   .markdown-article {
     p {
-      @apply text-lg xl:text-2xl;
+      @apply text-base xl:text-2xl;
 
       + p {
         @apply mt-4;

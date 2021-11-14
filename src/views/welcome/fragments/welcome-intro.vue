@@ -18,8 +18,8 @@
 
           <!-- Action buttons -->
           <div class="mt-10 flex flex-col xl:flex-row">
-            <base-button class="text-negative-900 bg-theme-500 hover:opacity-80 active:opacity-60">
-              What I've been doing
+            <base-button class="filled">
+              Who's ShookLyngs
             </base-button>
 
             <base-button

@@ -35,7 +35,7 @@
 <style lang="less" scoped>
   .button-base {
     @apply inline-block text-center align-middle cursor-pointer select-none;
-    @apply body-x h-14 text-xl font-bold transition;
+    @apply body-x h-12 xl:h-14 text-lg xl:text-xl font-bold transition;
 
     a& {
       @apply inline-flex justify-center items-center;
@@ -43,6 +43,9 @@
 
     &.filled {
       @apply text-negative-900 bg-theme-500 hover:opacity-80 active:opacity-60;
+    }
+    &.outlined {
+      @apply border-2 border-solid border-positive-900 hover:bg-negative-800;
     }
   }
 </style>

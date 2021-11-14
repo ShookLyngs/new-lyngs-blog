@@ -1,36 +1,40 @@
 <template>
-  <welcome-container>
-    <welcome-card-title leading="FRAMEWORK" text="OPTIONS" />
-    <div class="h-8" />
+  <div class="relative">
+    <div class="absolute bottom-0 left-0 w-full h-80 bg-theme-500" />
 
-    <welcome-card class="bg-negative-900">
-      <div class="flex">
-        <div class="xl:w-[55%]">
-          <markdown-renderer breaks :source="article" />
-          <base-button link class="mt-12 filled" href="https://github.com/ShookLyngs?tab=repositories" target="_blank">
-            Github repositories
-          </base-button>
-        </div>
+    <welcome-container class="relative">
+      <welcome-card-title leading="Framework" suffix="options" />
+      <div class="h-8" />
 
-        <div class="w-20" />
-
-        <div class="flex-auto flex flex-col">
-          <div class="text-right">
-            <div class="text-3xl font-bold leading-none text-positive-500">Projects this year</div>
-            <div class="text-5xl font-bold text-positive-900">Total 50+</div>
+      <welcome-card class="bg-negative-900">
+        <div class="flex flex-col-reverse xl:flex-row">
+          <div class="xl:w-[55%]">
+            <markdown-renderer breaks :source="article" />
+            <base-button link class="filled mt-12 w-full xl:w-auto" href="https://github.com/ShookLyngs?tab=repositories" target="_blank">
+              Github repositories
+            </base-button>
           </div>
-          <div class="h-4" />
-          <div class="flex-auto grid grid-cols-4">
-            <welcome-progress-bar title="Vue.js" :amount="26" :percentage="0.49" />
-            <welcome-progress-bar title="Flutter" :amount="14" :percentage="0.26" :opacity="0.8" />
-            <welcome-progress-bar title="UniApp" :amount="12" :percentage="0.22" :opacity="0.6" />
-            <welcome-progress-bar title="React" :amount="1" :percentage="0.1" :opacity="0.4" />
-          </div>
-        </div>
 
-      </div>
-    </welcome-card>
-  </welcome-container>
+          <div class="h-8 xl:w-24" />
+
+          <div class="flex-auto flex flex-col">
+            <div class="text-center xl:text-right">
+              <div class="text-xl xl:text-3xl font-bold leading-none text-positive-500">Projects this year</div>
+              <div class="text-4xl xl:text-5xl font-bold text-positive-900">Total 50+</div>
+            </div>
+            <div class="h-4" />
+            <div class="h-[40vh] xl:h-auto flex-auto grid grid-cols-4">
+              <welcome-progress-bar title="Vue.js" :amount="26" :percentage="0.49" />
+              <welcome-progress-bar title="Flutter" :amount="14" :percentage="0.26" :opacity="0.8" />
+              <welcome-progress-bar title="UniApp" :amount="12" :percentage="0.22" :opacity="0.6" />
+              <welcome-progress-bar title="React" :amount="1" :percentage="0.1" :opacity="0.4" />
+            </div>
+          </div>
+
+        </div>
+      </welcome-card>
+    </welcome-container>
+  </div>
 </template>
 
 <script>
@@ -54,7 +58,7 @@ Many of my works are private, but anyway, you can review my open-source projects
   `;
 
   export default {
-    name: 'welcome-brief',
+    name: 'welcome-frameworks',
     components: {
       MarkdownRenderer,
       WelcomeContainer,

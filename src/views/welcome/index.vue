@@ -8,6 +8,7 @@
     <welcome-intro />
     <welcome-brief />
     <welcome-frameworks />
+    <welcome-contact />
     <welcome-footer />
   </scrollbar>
 </template>
@@ -22,6 +23,7 @@
   import WelcomeIntro from './fragments/welcome-intro.vue';
   import WelcomeBrief from './fragments/welcome-brief.vue';
   import WelcomeFrameworks from './fragments/welcome-frameworks.vue';
+  import WelcomeContact from './fragments/welcome-contact.vue';
 
   export default {
     name: 'welcome-index',
@@ -32,6 +34,7 @@
       WelcomeIntro,
       WelcomeBrief,
       WelcomeFrameworks,
+      WelcomeContact,
     },
     setup() {},
   };

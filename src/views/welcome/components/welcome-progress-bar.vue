@@ -3,11 +3,11 @@
     <div class="flex-auto flex flex-col justify-end">
       <div
         class="flex flex-col items-center text-theme-600"
-        :style="{ opacity: opacity, height: `${percentage * 180}%` }"
+        :style="{ opacity: opacity, minHeight: `${percentage * 180}%` }"
       >
-        <div class="mb-2 text-xl font-bold">{{ amount }}</div>
+        <div class="mb-2 text-xl xl:text-2xl font-bold">{{ amount }}</div>
         <div
-          class="flex-auto w-3 rounded-t-full bg-theme-500"
+          class="flex-auto w-2 xl:w-3 min-h-[10px] rounded-t-full bg-theme-500"
           :style="{ opacity: opacity }"
           :class="barClass"
         />
@@ -15,7 +15,7 @@
     </div>
 
     <div
-      class="p-3 w-full text-center text-xl font-bold"
+      class="py-3 w-full text-center text-base xl:text-xl font-bold"
       :class="opacity < 1 ? 'text-positive-400' : 'text-theme-500 bg-negative-800'"
     >
       {{ title }}
