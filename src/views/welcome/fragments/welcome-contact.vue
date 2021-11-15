@@ -12,7 +12,7 @@
         <div class="relative max-w-[400px]">
           <div class="text-2xl xl:text-3xl font-bold text-positive-500">Find me</div>
           <div class="text-sm xl:text-base text-positive-300">For job offering and project outsourcing</div>
-          <div class="h-4 xl:h-8" />
+          <div class="h-8 xl:h-10" />
 
           <!-- Github -->
           <div class="mb-3 px-4 py-3 flex justify-between items-center bg-negative-700">
@@ -42,7 +42,7 @@
             </button>
           </div>
 
-          <base-button link class="filled mt-6 w-full" href="mailto:shook-lyngs@foxmail.com">Message</base-button>
+          <base-button link class="filled mt-6 w-full" href="" target="_blank">Chat on Telegram</base-button>
           <base-button class="outlined mt-3 w-full">Resume</base-button>
         </div>
       </welcome-card>

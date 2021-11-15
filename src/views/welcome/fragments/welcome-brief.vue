@@ -9,7 +9,7 @@
           <div class="title">Frontend</div>
           <div class="description text-positive-500">Web developer</div>
         </div>
-        <div class="h-6 xl:h-0" />
+        <div class="h-8 xl:h-0" />
         <div class="flex justify-center xl:justify-left">
           <div class="flex-auto text-center">
             <div class="title text-theme-500">3+</div>
