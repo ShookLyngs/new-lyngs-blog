@@ -20,8 +20,7 @@
       const defaultSlot = ref();
       watchEffect(() => defaultSlot.value && onSlotUpdated());
 
-      // Current element of slot,
-      // which only store the first child in the default slot
+      // Current element of slot
       let currentElement = null;
 
       // Observer
@@ -52,8 +51,8 @@
         };
 
         if (width.value !== size.width || height.value !== size.height) {
-          width.value = size.width;
           height.value = size.height;
+          width.value = size.width;
           emit('resize', rect);
         }
       }

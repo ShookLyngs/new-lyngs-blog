@@ -148,7 +148,7 @@
       // Dragging status
       const dragging = ref(false);
       function setDragging(value) {
-        dragging.valuie = value;
+        dragging.value = value;
       }
 
       // Scroll behavior observer
