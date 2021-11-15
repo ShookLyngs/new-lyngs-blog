@@ -6,8 +6,12 @@
       <welcome-card-title leading="Framework" suffix="options" />
       <div class="h-4 xl:h-8" />
 
-      <welcome-card class="bg-negative-900">
-        <div class="flex flex-col-reverse xl:flex-row">
+      <welcome-card class="relative bg-negative-900">
+        <div class="absolute right-0 top-0 h-44 w-44 xl:h-60 xl:w-60 overflow-hidden">
+          <div class="absolute -right-14 -top-14 mb-20 w-full h-full rounded-full bg-negative-700" />
+        </div>
+
+        <div class="relative flex flex-col-reverse xl:flex-row">
           <div class="xl:w-[55%]">
             <markdown-renderer breaks :source="article" />
             <base-button link class="filled mt-12 w-full xl:w-auto" href="https://github.com/ShookLyngs?tab=repositories" target="_blank">

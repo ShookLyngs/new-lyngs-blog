@@ -9,9 +9,9 @@
       <welcome-card class="relative bg-negative-800">
         <div class="absolute top-0 right-0 w-1/2 xl:w-1/4 h-full bg-contact" />
 
-        <div class="relative max-w-[400px]">
-          <div class="text-2xl xl:text-3xl font-bold text-positive-500">Find me</div>
-          <div class="text-sm xl:text-base text-positive-300">For job offering and project outsourcing</div>
+        <div class="relative mx-auto max-w-[500px]">
+          <div class="text-2xl xl:text-3xl font-bold text-center text-positive-500">Find me</div>
+          <div class="text-sm xl:text-base text-center text-positive-300">For job offering and project outsourcing</div>
           <div class="h-8 xl:h-10" />
 
           <!-- Github -->
@@ -97,7 +97,7 @@
   }
 
   .button-icon {
-    @apply w-8 h-8 xl:w-9 xl:h-9 xl:text-xl inline-flex justify-center items-center rounded-full bg-negative-600;
+    @apply w-8 h-8 xl:w-11 xl:h-11 xl:text-xl inline-flex justify-center items-center rounded-full bg-negative-600;
     @apply select-none cursor-pointer transition hover:text-negative-900 hover:bg-theme-500 active:opacity-70;
   }
 </style>

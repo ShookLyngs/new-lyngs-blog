@@ -50,12 +50,16 @@
     setup() {
       const hoveringContact = ref(false);
 
-      const { animateTo } = useScrollbar();
+      const { wrapperSize, animateTo } = useScrollbar();
       function toAnchor(anchor) {
         const target = document.querySelector(anchor);
         if (target) {
           const { y } = target.getBoundingClientRect();
-          animateTo({ y: y - 140 , duration: 500 });
+          const { scrollTop } = wrapperSize.value;
+          animateTo({
+            y: scrollTop + y - 140 ,
+            duration: 500,
+          });
         }
       }
 
