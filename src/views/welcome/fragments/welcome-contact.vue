@@ -6,19 +6,19 @@
       <welcome-card-title theme leading="Contact" id="welcome-contact" />
       <div class="h-4 xl:h-8" />
 
-      <welcome-card class="relative bg-negative-800">
+      <welcome-card class="relative bg-negative-900">
         <div class="absolute top-0 right-0 w-1/2 xl:w-1/4 h-full bg-contact" />
 
         <div class="relative mx-auto max-w-[500px]">
-          <div class="text-2xl xl:text-3xl font-bold text-center text-positive-500">Find me</div>
+          <div class="text-2xl xl:text-4xl font-bold text-center text-positive-500">Find me</div>
           <div class="text-sm xl:text-base text-center text-positive-300">For job offering and project outsourcing</div>
           <div class="h-8 xl:h-10" />
 
           <!-- Github -->
-          <div class="mb-3 px-4 py-3 flex justify-between items-center bg-negative-700">
+          <div class="mb-3 px-4 py-3 xl:px-5 xl:py-4 flex justify-between items-center bg-negative-700">
             <div class="flex-auto overflow-hidden">
-              <div class="text-xs xl:text-base text-positive-400">Github</div>
-              <div class="text-bse xl:text-xl font-bold text-positive-900">ShookLyngs</div>
+              <div class="text-xs xl:text-lg text-positive-400">Github</div>
+              <div class="text-base xl:text-xl font-bold text-positive-900">ShookLyngs</div>
             </div>
             <div class="w-2" />
             <a class="button-icon" href="https://github.com/ShookLyngs" target="_blank">
@@ -29,9 +29,9 @@
           </div>
 
           <!-- Email -->
-          <div class="px-4 py-3 flex justify-between items-center bg-negative-700">
+          <div class="mb-3 px-4 py-3 flex justify-between items-center bg-negative-700">
             <div class="flex-auto overflow-hidden">
-              <div class="text-xs xl:text-base text-positive-400">Email</div>
+              <div class="text-xs xl:text-lg text-positive-400">Email</div>
               <div class="text-base xl:text-xl font-bold truncate text-positive-900">shook-lyngs@foxmail.com</div>
             </div>
             <div class="w-2" />
@@ -97,7 +97,7 @@
   }
 
   .button-icon {
-    @apply w-8 h-8 xl:w-11 xl:h-11 xl:text-xl inline-flex justify-center items-center rounded-full bg-negative-600;
+    @apply w-8 h-8 xl:w-12 xl:h-12 xl:text-2xl inline-flex justify-center items-center rounded-full bg-negative-600;
     @apply select-none cursor-pointer transition hover:text-negative-900 hover:bg-theme-500 active:opacity-70;
   }
 </style>
