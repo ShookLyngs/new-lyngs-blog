@@ -23,7 +23,7 @@
 
           <div class="flex-auto flex flex-col">
             <div class="text-center xl:text-right">
-              <div class="text-xl xl:text-3xl font-bold leading-none text-positive-500">Projects this year</div>
+              <div class="text-xl xl:text-3xl font-bold leading-none text-positive-500">Deployed projects in 2021</div>
               <div class="text-4xl xl:text-5xl font-bold text-positive-900">Total 50+</div>
             </div>
             <div class="h-4" />
