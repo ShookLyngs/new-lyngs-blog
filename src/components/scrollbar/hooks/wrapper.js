@@ -1,4 +1,5 @@
 import { computed, ref } from 'vue';
+import { scrollAnimateTo } from '@/components/scrollbar/util/animate';
 
 export function useWrapper({ props, gutterWidth }) {
   const wrapper = ref();
@@ -55,6 +56,16 @@ export function useWrapper({ props, gutterWidth }) {
     }
   }
 
+  async function animateTo({ x, y, duration = 300 } = {}) {
+    const { scrollTop, scrollLeft } = wrapperSize.value;
+    return scrollAnimateTo({
+      from: { x: scrollLeft, y: scrollTop },
+      to: { x, y },
+      onUpdate: (state) => scrollTo(state),
+      duration,
+    });
+  }
+
   return {
     wrapper,
     wrapperSize,
@@ -64,5 +75,6 @@ export function useWrapper({ props, gutterWidth }) {
     updateWrapperSize,
 
     scrollTo,
+    animateTo,
   };
 }

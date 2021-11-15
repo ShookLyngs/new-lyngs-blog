@@ -110,7 +110,7 @@
       // Wrapper
       const {
         wrapper, wrapperSize, wrapperStyle,
-        updateWrapperSize, scrollTo,
+        updateWrapperSize, scrollTo, animateTo,
       } = useWrapper({ props, gutterWidth });
       function onWrapperScroll() {
         updateWrapperSize();
@@ -176,6 +176,7 @@
         wrapper,
         wrapperStyle,
         scrollTo,
+        animateTo,
 
         wrapperSize,
         updateWrapperSize,
