@@ -1,6 +1,6 @@
 <template>
   <welcome-container>
-    <welcome-card-title prefix="As a" leading="developer" />
+    <welcome-card-title prefix="As a" leading="developer" id="welcome-brief" />
     <div class="h-4 xl:h-8" />
 
     <welcome-card class="font-bold bg-negative-800">

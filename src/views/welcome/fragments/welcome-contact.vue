@@ -3,7 +3,7 @@
     <div class="absolute top-0 left-0 w-full h-36 bg-theme-500" />
 
     <welcome-container class="relative">
-      <welcome-card-title theme leading="Contact" />
+      <welcome-card-title theme leading="Contact" id="welcome-contact" />
       <div class="h-4 xl:h-8" />
 
       <welcome-card class="relative bg-negative-800">
@@ -42,7 +42,7 @@
             </button>
           </div>
 
-          <base-button class="filled mt-6 w-full">Message</base-button>
+          <base-button link class="filled mt-6 w-full" href="mailto:shook-lyngs@foxmail.com">Message</base-button>
           <base-button class="outlined mt-3 w-full">Resume</base-button>
         </div>
       </welcome-card>
@@ -78,8 +78,13 @@
         await copyText('shook-lyngs@foxmail.com');
       }
 
+      function sendMail() {
+        window.open('mailto:test@example.com');
+      }
+
       return {
         copyEmail,
+        sendMail,
       };
     },
   };

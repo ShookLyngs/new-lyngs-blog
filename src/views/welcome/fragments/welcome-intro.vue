@@ -18,30 +18,12 @@
 
           <!-- Action buttons -->
           <div class="mt-10 flex flex-col xl:flex-row">
-            <base-button class="filled">
+            <base-button class="filled" @click="toAnchor('#welcome-brief')">
               Who's ShookLyngs
             </base-button>
 
-            <base-button
-              class="mt-4 xl:mt-0 xl:ml-4 text-positive-900 border-2 border-positive-900 hover:border-theme-500 active:opacity-60"
-              @mouseenter="hoveringContact = true"
-              @mouseleave="hoveringContact = false"
-            >
-              <div class="flex justify-center items-center h-full">
-                <div>Contact</div>
-                <collapse
-                  class="h-full"
-                  direction="horizontal"
-                  :show="hoveringContact"
-                  :class="hoveringContact ? 'opacity-100': 'opacity-0'"
-                >
-                  <div class="pl-6 w-max h-full flex items-center transition-all whitespace-nowrap">
-                    <span class="w-5 h-5 rounded-full bg-theme-400" />
-                    <span class="ml-2 w-5 h-5 rounded-full bg-theme-400" />
-                    <span class="ml-2 w-5 h-5 rounded-full bg-theme-400" />
-                  </div>
-                </collapse>
-              </div>
+            <base-button class="mt-4 xl:mt-0 xl:ml-4 outlined" @click="toAnchor('#welcome-contact')">
+              Contact
             </base-button>
           </div>
         </div>
@@ -56,21 +38,32 @@
 <script>
   // Functions
   import { ref } from 'vue';
+  import { useScrollbar } from '@/components/scrollbar';
   // Components
-  import Collapse from '@/components/collapse.vue';
-  import BaseButton from '../../../components/base-button.vue';
+  import BaseButton from '@/components/base-button.vue';
 
   export default {
     name: 'welcome-intro',
     components: {
-      Collapse,
       BaseButton,
     },
     setup() {
       const hoveringContact = ref(false);
 
+      const { animateTo } = useScrollbar();
+      function toAnchor(anchor) {
+        const target = document.querySelector(anchor);
+        if (target) {
+          const { y } = target.getBoundingClientRect();
+          animateTo({ y: y - 140 , duration: 500 });
+        }
+      }
+
       return {
         hoveringContact,
+
+        animateTo,
+        toAnchor,
       };
     },
   };
