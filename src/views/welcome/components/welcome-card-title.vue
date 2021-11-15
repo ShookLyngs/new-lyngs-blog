@@ -22,15 +22,15 @@
         default: false,
       },
       leading: {
-        Type: String,
+        type: String,
         default: void 0,
       },
       prefix: {
-        Type: String,
+        type: String,
         default: void 0,
       },
       suffix: {
-        Type: String,
+        type: String,
         default: void 0,
       },
     },

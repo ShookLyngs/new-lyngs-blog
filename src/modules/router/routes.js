@@ -1,3 +1,6 @@
+import { createAsyncRoute } from '@/components/async-route';
+import WelcomePlaceholder from '@/views/welcome/placeholder.vue';
+
 export const routes = [
   {
     path: '/',
@@ -6,12 +9,19 @@ export const routes = [
   },
 
   {
+    path: '/welcome-loading',
+    name: 'welcome-loading',
+    component: WelcomePlaceholder,
+  },
+
+  {
     path: '/welcome',
     name: 'welcome',
-    meta: {
-      title: '登录',
-    },
-    component: () => import('@/views/welcome/index.vue'),
+    meta: { title: '首页' },
+    component: createAsyncRoute({
+      loader: () => import('@/views/welcome/index.vue'),
+      loading: WelcomePlaceholder,
+    }),
   },
 
   {

@@ -4,7 +4,7 @@
 
     <welcome-container class="relative">
       <welcome-card-title leading="Framework" suffix="options" />
-      <div class="h-8" />
+      <div class="h-4 xl:h-8" />
 
       <welcome-card class="bg-negative-900">
         <div class="flex flex-col-reverse xl:flex-row">

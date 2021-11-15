@@ -1,7 +1,7 @@
 <template>
   <welcome-container>
-    <welcome-card-title leading="Identity" prefix="My" />
-    <div class="h-8" />
+    <welcome-card-title prefix="As a" leading="developer" />
+    <div class="h-4 xl:h-8" />
 
     <welcome-card class="font-bold bg-negative-800">
       <div class="flex flex-col xl:flex-row xl:items-center">

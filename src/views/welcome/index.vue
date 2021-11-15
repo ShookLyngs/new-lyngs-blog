@@ -36,7 +36,6 @@
       WelcomeFrameworks,
       WelcomeContact,
     },
-    setup() {},
   };
 </script>
 

@@ -47,7 +47,7 @@
         </div>
 
         <!-- Background image -->
-        <div class="xl:w-[40vw] bg-welcome bg-cover bg-no-repeat bg-bottom bg-positive-500" />
+        <div class="flex-static xl:w-[370px] bg-welcome bg-cover bg-no-repeat bg-bottom bg-positive-500" />
       </div>
     </div>
   </div>

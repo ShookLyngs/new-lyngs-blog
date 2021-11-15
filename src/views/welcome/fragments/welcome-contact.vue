@@ -4,27 +4,42 @@
 
     <welcome-container class="relative">
       <welcome-card-title theme leading="Contact" />
-      <div class="h-8" />
+      <div class="h-4 xl:h-8" />
 
       <welcome-card class="relative bg-negative-800">
         <div class="absolute top-0 right-0 w-1/2 xl:w-1/4 h-full bg-contact" />
 
-        <div class="max-w-[400px]">
-          <div class="mb-8 text-3xl xl:text-4xl font-bold text-center text-positive-300">Find me</div>
+        <div class="relative max-w-[400px]">
+          <div class="text-2xl xl:text-3xl font-bold text-positive-500">Find me</div>
+          <div class="text-sm xl:text-base text-positive-300">For job offering and project outsourcing</div>
+          <div class="h-4 xl:h-8" />
 
+          <!-- Github -->
           <div class="mb-3 px-4 py-3 flex justify-between items-center bg-negative-700">
-            <div>
+            <div class="flex-auto overflow-hidden">
               <div class="text-xs xl:text-base text-positive-400">Github</div>
-              <div class="text-sm xl:text-xl font-bold text-positive-900">ShookLyngs</div>
+              <div class="text-bse xl:text-xl font-bold text-positive-900">ShookLyngs</div>
             </div>
-            <div>copy</div>
+            <div class="w-2" />
+            <a class="button-icon" href="https://github.com/ShookLyngs" target="_blank">
+              <icon>
+                <github-filled />
+              </icon>
+            </a>
           </div>
+
+          <!-- Email -->
           <div class="px-4 py-3 flex justify-between items-center bg-negative-700">
-            <div>
+            <div class="flex-auto overflow-hidden">
               <div class="text-xs xl:text-base text-positive-400">Email</div>
-              <div class="text-sm xl:text-xl font-bold text-positive-900">shook-lyngs@foxmail.com</div>
+              <div class="text-base xl:text-xl font-bold truncate text-positive-900">shook-lyngs@foxmail.com</div>
             </div>
-            <div>copy</div>
+            <div class="w-2" />
+            <button class="flex-static button-icon" @click="copyEmail">
+              <icon>
+                <copy-filled />
+              </icon>
+            </button>
           </div>
 
           <base-button class="filled mt-6 w-full">Message</base-button>
@@ -36,36 +51,35 @@
 </template>
 
 <script>
+  // Functions
+  import { copyText } from '@/packages/clipboard';
+
   // Components
-  import MarkdownRenderer from '@/components/markdown-renderer.vue';
   import WelcomeContainer from '../components/welcome-container.vue';
   import WelcomeCardTitle from '../components/welcome-card-title.vue';
   import WelcomeCard from '../components/welcome-card.vue';
   import BaseButton from '../components/base-button.vue';
-
-  // Defines
-  const article = `
-I have completed atleast 50 projects this year, and half of them was powered by Vue.js.
-
-It’s not just a market-oriented result, I often choose to use Vue3 as basement when landing outsourcing projects, due to the simplicity of it.
-
-But when I need to develop an app with more native ability, or when I’m gonna make a Mini-program app, Flutter and UniApp should be some better solutions.
-
-Many of my works are private, but anyway, you can review my open-source projects on Github.
-  `;
+  import { GithubFilled, CopyFilled } from '@vicons/antd';
+  import { Icon } from '@vicons/utils';
 
   export default {
     name: 'welcome-contact',
     components: {
-      MarkdownRenderer,
       WelcomeContainer,
       WelcomeCard,
       WelcomeCardTitle,
       BaseButton,
+      Icon,
+      GithubFilled,
+      CopyFilled,
     },
     setup() {
+      async function copyEmail() {
+        await copyText('shook-lyngs@foxmail.com');
+      }
+
       return {
-        article,
+        copyEmail,
       };
     },
   };
@@ -75,5 +89,10 @@ Many of my works are private, but anyway, you can review my open-source projects
   .bg-contact {
     @apply bg-contain bg-right-top bg-no-repeat;
     background-image: url('@/assets/images/welcome/contact-background.png');
+  }
+
+  .button-icon {
+    @apply w-8 h-8 xl:w-9 xl:h-9 xl:text-xl inline-flex justify-center items-center rounded-full bg-negative-600;
+    @apply select-none cursor-pointer transition hover:text-negative-900 hover:bg-theme-500 active:opacity-70;
   }
 </style>

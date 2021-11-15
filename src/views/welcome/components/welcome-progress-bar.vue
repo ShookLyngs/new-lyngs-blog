@@ -24,8 +24,6 @@
 </template>
 
 <script>
-  import { computed } from 'vue';
-
   export default {
     name: 'welcome-progress-bar',
     props: {
