@@ -58,7 +58,7 @@
   import { ref } from 'vue';
   // Components
   import Collapse from '@/components/collapse.vue';
-  import BaseButton from '../components/base-button.vue';
+  import BaseButton from '../../../components/base-button.vue';
 
   export default {
     name: 'welcome-intro',

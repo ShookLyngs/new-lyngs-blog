@@ -44,7 +44,7 @@
   import WelcomeCardTitle from '../components/welcome-card-title.vue';
   import WelcomeCard from '../components/welcome-card.vue';
   import WelcomeProgressBar from '../components/welcome-progress-bar.vue';
-  import BaseButton from '../components/base-button.vue';
+  import BaseButton from '../../../components/base-button.vue';
 
   // Defines
   const article = `
