@@ -1,5 +1,6 @@
 <template>
   <scrollbar
+    disabled-horizontal
     class="flex-auto flex"
     wrap-class="flex-auto flex flex-col"
     view-clas="flex-auto flex flex-col"

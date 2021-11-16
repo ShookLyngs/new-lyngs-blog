@@ -35,11 +35,22 @@
               <div class="text-base xl:text-xl font-bold truncate text-positive-900">shook-lyngs@foxmail.com</div>
             </div>
             <div class="w-2" />
-            <button class="flex-static button-icon" @click="copyEmail">
-              <icon>
-                <copy-filled />
-              </icon>
-            </button>
+            <popover ref="emailPopper" placement="right" trigger="manual">
+              <template #trigger>
+                <button class="flex-static button-icon" @click="copyEmail">
+                  <icon>
+                    <copy-filled />
+                  </icon>
+                </button>
+              </template>
+
+              <div class="flex items-center">
+                <span>Copied</span>
+                <icon class="ml-1.5 text-lg text-success-500">
+                  <check-circle-filled />
+                </icon>
+              </div>
+            </popover>
           </div>
 
           <base-button link class="filled mt-6 w-full" href="" target="_blank">Chat on Telegram</base-button>
@@ -52,14 +63,16 @@
 
 <script>
   // Functions
+  import { ref } from 'vue';
   import { copyText } from '@/packages/clipboard';
 
   // Components
   import WelcomeContainer from '../components/welcome-container.vue';
   import WelcomeCardTitle from '../components/welcome-card-title.vue';
   import WelcomeCard from '../components/welcome-card.vue';
-  import BaseButton from '../../../components/base-button.vue';
-  import { GithubFilled, CopyFilled } from '@vicons/antd';
+  import BaseButton from '@/components/base-button.vue';
+  import Popover from '@/components/popover';
+  import { GithubFilled, CopyFilled, CheckCircleFilled } from '@vicons/antd';
   import { Icon } from '@vicons/utils';
 
   export default {
@@ -69,13 +82,27 @@
       WelcomeCard,
       WelcomeCardTitle,
       BaseButton,
-      Icon,
+      Popover,
       GithubFilled,
       CopyFilled,
+      CheckCircleFilled,
+      Icon,
     },
     setup() {
+      const emailPopper = ref();
       async function copyEmail() {
         await copyText('shook-lyngs@foxmail.com');
+        copySuccess();
+      }
+
+      let copyTimer = null;
+      function copySuccess() {
+        clearTimeout(copyTimer);
+        emailPopper.value?.show?.();
+
+        copyTimer = setTimeout(() => {
+          emailPopper.value?.hide?.();
+        }, 2000);
       }
 
       function sendMail() {
@@ -83,7 +110,9 @@
       }
 
       return {
+        emailPopper,
         copyEmail,
+
         sendMail,
       };
     },
