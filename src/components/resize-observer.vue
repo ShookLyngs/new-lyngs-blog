@@ -7,7 +7,7 @@
 
 <script>
   // Functions
-  import { ref, watchEffect, onBeforeUnmount, onMounted, onUpdated } from 'vue';
+  import { ref, watchEffect, onBeforeUnmount, onMounted, onUpdated, reactive } from 'vue';
   import { findDOMNode } from '@/assets/util/dom';
   // Objects
   import Observer from 'resize-observer-polyfill';
@@ -25,8 +25,12 @@
 
       // Observer
       let observer = null;
-      const width = ref(0);
-      const height = ref(0);
+      function destroyObserver() {
+        if (observer) {
+          observer.disconnect();
+          observer = null;
+        }
+      }
       function onSlotUpdated() {
         const element = findDOMNode(defaultSlot.value);
 
@@ -41,25 +45,22 @@
           onResize([ { target: element } ]);
         }
       }
+
+      // Size
+      const size = reactive({
+        width: 0,
+        height: 0,
+      });
       function onResize(entries) {
         const { target } = entries[0];
         const rect = target.getBoundingClientRect();
 
-        const size = {
-          width: Math.floor(rect.width),
-          height: Math.floor(rect.height),
-        };
+        const width = Math.floor(rect.width);
+        const height = Math.floor(rect.height);
 
-        if (width.value !== size.width || height.value !== size.height) {
-          height.value = size.height;
-          width.value = size.width;
+        if (width !== size.width || height !== size.height) {
+          Object.assign(size, { width, height });
           emit('resize', rect);
-        }
-      }
-      function destroyObserver() {
-        if (observer) {
-          observer.disconnect();
-          observer = null;
         }
       }
 
@@ -70,8 +71,7 @@
 
       return {
         defaultSlot,
-        width,
-        height,
+        size,
       };
     },
   };
