@@ -43,11 +43,11 @@
   import { createScrollbar } from './hooks/shared';
   import { useGutter } from './hooks/gutter';
   import { useSlider } from './hooks/slider';
+  import { useWrapper } from './hooks/wrapper';
 
   // Components
   import Slider from './slider.vue';
-  import ResizeObserver from '@/components/resize-observer.vue';
-  import { useWrapper } from '@/components/scrollbar/hooks/wrapper';
+  import { ResizeObserver } from 'polacoms';
 
   export default {
     name: 'scrollbar',
