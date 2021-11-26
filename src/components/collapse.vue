@@ -3,6 +3,8 @@
     <resize-observer @resize="onResize">
       <slot :show="show" />
     </resize-observer>
+
+    <temp te />
   </div>
 </template>
 
@@ -10,12 +12,13 @@
   // Functions
   import { reactive, ref, computed } from 'vue';
   // Components
-  import ResizeObserver from './resize-observer.vue';
+  import { ResizeObserver, Temp } from 'polacoms';
 
   export default {
     name: 'collapse',
     components: {
       ResizeObserver,
+      Temp,
     },
     props: {
       show: {
