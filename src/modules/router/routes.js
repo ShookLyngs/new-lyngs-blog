@@ -1,12 +1,5 @@
 // Functions
-import { defineAsyncComponent } from 'vue';
-function createSkeletonRoute({ loader, loading }) {
-  return async () => defineAsyncComponent({
-    loadingComponent: loading,
-    loader: loader,
-  });
-}
-
+import { createSkeletonRoute } from './util';
 // Components
 import WelcomePlaceholder from '@/views/welcome/placeholder.vue';
 

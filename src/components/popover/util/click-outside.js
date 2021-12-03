@@ -1,4 +1,4 @@
-import { findDOMNode } from '@/assets/util/dom';
+import { findDOMNode } from '@/modules/util/dom';
 
 export function onClickOutside(ref, callback) {
   function onClick(event) {

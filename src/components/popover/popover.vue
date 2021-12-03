@@ -25,7 +25,7 @@
   // Functions
   import { nextTick, ref, watch } from 'vue';
   import { createPopper } from '@popperjs/core';
-  import { findDOMNode } from '@/assets/util/dom';
+  import { findDOMNode } from '@/modules/util/dom';
   import { onClickOutside } from './util/click-outside';
   // Components
   import PopoverTarget from './target.vue';
