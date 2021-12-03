@@ -16,7 +16,7 @@
 
 <script>
   // Components
-  import Scrollbar from '@/components/scrollbar';
+  import { Scrollbar } from 'polacoms';
 
   // Fragments
   import WelcomeHeader from './fragments/welcome-header.vue';

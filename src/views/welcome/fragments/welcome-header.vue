@@ -5,8 +5,11 @@
         <span class="h-5 w-5 mr-2 rounded-full bg-theme-500" />
         <span class="">LyngsBlog</span>
       </div>
-      <button class="button inline-flex items-center select-none transition text-positive-800 xl:text-negative-900 hover:opacity-80 active:opacity-60">
-        <span class="">English</span>
+      <button
+        class="button inline-flex items-center select-none transition text-positive-800 xl:text-negative-900 hover:opacity-80 active:opacity-60"
+        @click="toggleLocale"
+      >
+        <span class="">{{ $t('common.language') }}</span>
         <span class="decorator h-4 w-4 ml-2 rounded-full bg-positive-100 xl:bg-negative-900" />
       </button>
     </div>
@@ -16,16 +19,26 @@
 <script>
   // Functions
   import { computed } from 'vue';
-  import { useScrollbar } from '@/components/scrollbar';
+  import { useI18n } from 'vue-i18n';
+  import { useScrollbar } from 'polacoms';
 
   export default {
     name: 'welcome-header',
     setup() {
+      // Scrollbar
       const { wrapperSize } = useScrollbar();
       const scrollTop = computed(() => wrapperSize.value?.scrollTop ?? 0);
 
+      // Locale
+      const { locale } = useI18n();
+      function toggleLocale() {
+        locale.value = locale.value === 'zh'? 'en' : 'zh';
+      }
+
       return {
         scrollTop,
+
+        toggleLocale,
       };
     },
   };

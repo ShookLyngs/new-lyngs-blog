@@ -13,8 +13,9 @@
     "clipboard": "^2.0.8",
     "color": "^4.0.1",
     "dayjs": "^1.10.7",
-    "polacoms": "^0.1.12",
+    "polacoms": "^0.2.0",
     "vue": "^3.2.21",
+    "vue-i18n": "^9.2.0-beta.22",
     "vue-router": "^4.0.12",
     "vue3-markdown-it": "^1.0.9"
   },

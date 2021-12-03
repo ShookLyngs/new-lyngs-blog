@@ -10,20 +10,20 @@
 
           <!-- Intro -->
           <div class="text-4xl xl:text-6xl font-bold select-none text-positive-900">
-            I'm ShookLyngs,
+            {{ $t('welcome.introText1') }}
           </div>
           <div class="mt-1 text-xl xl:text-4xl font-bold select-none text-positive-900">
-            a web-based software developer.
+            {{ $t('welcome.introText2') }}
           </div>
 
           <!-- Action buttons -->
           <div class="mt-10 flex flex-col xl:flex-row">
             <base-button class="filled" @click="toAnchor('#welcome-brief')">
-              Who's ShookLyngs
+              {{ $t('welcome.introButton1') }}
             </base-button>
 
             <base-button class="mt-4 xl:mt-0 xl:ml-4 outlined" @click="toAnchor('#welcome-contact')">
-              Contact
+              {{ $t('welcome.contact') }}
             </base-button>
           </div>
         </div>
@@ -38,7 +38,7 @@
 <script>
   // Functions
   import { ref } from 'vue';
-  import { useScrollbar } from '@/components/scrollbar';
+  import { useScrollbar } from 'polacoms';
   // Components
   import BaseButton from '@/components/base-button.vue';
 
