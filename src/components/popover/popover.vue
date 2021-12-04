@@ -2,16 +2,22 @@
   <popover-target
     tabindex="0"
     ref="trigger"
-    @click.capture="onClick"
     @mouseenter="onMouseEnter"
     @mouseleave="onMouseLeave"
-    @focus.capture="onFocus"
-    @blur.capture="onBlur"
+    @focus="onFocus"
+    @blur="onBlur"
+    @click="onClick"
   >
     <slot name="trigger" />
   </popover-target>
 
-  <div class="popover" ref="popper" role="tooltip">
+  <div
+    ref="popper"
+    role="tooltip"
+    class="popover"
+    @mouseenter="onMouseEnterBody"
+    @mouseleave="onMouseLeaveBody"
+  >
     <transition name="fade" @after-enter="onAfterShow" @after-appear="onAfterHide">
       <div class="popover__body" v-show="showPopper">
         <div class="popover__arrow" data-popper-arrow />
@@ -63,9 +69,19 @@
         const triggerDom = findDOMNode(trigger.value);
         const popperDom = findDOMNode(popper.value);
 
+        console.log(triggerDom, popperDom);
+
         instance.value = createPopper(triggerDom, popperDom, {
           placement: props.placement,
           strategy: props.strategy,
+          modifiers: [
+            {
+              name: 'offset',
+              options: {
+                offset: [0, 12],
+              },
+            },
+          ],
         });
       }
       function update() {
@@ -79,23 +95,35 @@
 
       // Visibility controls
       const showPopper = ref(false);
+      let popperDelayTimer = null;
       function show() {
-        showPopper.value = true;
-        update();
+        clearTimeout(popperDelayTimer);
+        popperDelayTimer = setTimeout(() => {
+          showPopper.value = true;
+          update();
+        }, 100);
       }
       function hide() {
-        showPopper.value = false;
+        clearTimeout(popperDelayTimer);
+        popperDelayTimer = setTimeout(() => {
+          showPopper.value = false;
+        }, 100);
       }
 
-      // Element events
+      // Target events
+      const hoveringTarget = ref(false);
       function onMouseEnter() {
         if (props.trigger === 'hover') {
+          hoveringTarget.value = true;
           show();
         }
       }
       function onMouseLeave() {
         if (props.trigger === 'hover') {
-          hide();
+          hoveringTarget.value = false;
+          if (!hoveringTarget.value && !hoveringBody.value) {
+            hide();
+          }
         }
       }
       function onFocus() {
@@ -114,6 +142,23 @@
             hide();
           } else {
             show();
+          }
+        }
+      }
+
+      // Body events
+      const hoveringBody = ref(false);
+      function onMouseEnterBody() {
+        if (props.trigger === 'hover') {
+          hoveringBody.value = true;
+          nextTick(show);
+        }
+      }
+      function onMouseLeaveBody() {
+        if (props.trigger === 'hover') {
+          hoveringBody.value = false;
+          if (!hoveringTarget.value && !hoveringBody.value) {
+            hide();
           }
         }
       }
@@ -146,6 +191,10 @@
         onFocus,
         onBlur,
         onClick,
+
+        hoveringBody,
+        onMouseEnterBody,
+        onMouseLeaveBody,
 
         onAfterShow,
         onAfterHide,

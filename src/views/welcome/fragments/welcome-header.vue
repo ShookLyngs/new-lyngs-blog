@@ -5,18 +5,28 @@
         <span class="h-5 w-5 mr-2 rounded-full bg-theme-500" />
         <span class="">LyngsBlog</span>
       </div>
-      <button
-        class="button inline-flex items-center select-none transition text-positive-800 xl:text-negative-900 hover:opacity-80 active:opacity-60"
-        @click="toggleLocale"
-      >
-        <span class="">{{ $t('common.language') }}</span>
-        <span class="decorator h-4 w-4 ml-2 rounded-full bg-positive-100 xl:bg-negative-900" />
-      </button>
+
+      <div>
+        <popover placement="bottom" trigger="hover">
+          <template #trigger>
+            <div class="relative button inline-flex items-center select-none transition text-positive-800 xl:text-negative-900 hover:opacity-80 active:opacity-60">
+              <span class="">{{ $t('common.language') }}</span>
+              <span class="decorator h-4 w-4 ml-2 rounded-full bg-positive-100 xl:bg-negative-900" />
+            </div>
+          </template>
+
+          <div>
+            content
+          </div>
+        </popover>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
+  // Components
+  import Popover from '@/components/popover';
   // Functions
   import { computed } from 'vue';
   import { useI18n } from 'vue-i18n';
@@ -24,6 +34,9 @@
 
   export default {
     name: 'welcome-header',
+    components: {
+      Popover,
+    },
     setup() {
       // Scrollbar
       const { wrapperSize } = useScrollbar();

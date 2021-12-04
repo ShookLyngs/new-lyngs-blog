@@ -1,14 +1,24 @@
 <script>
-  import { h } from 'vue';
-
   export default {
     name: 'popover-target',
-    inheritAttrs: false,
-    setup(props, { slots }) {
-      return () => {
-        const content = slots.default();
-        return h(Array.isArray(content) ? content?.[0] : content);
-      };
+    render() {
+      const slot = this.$slots.default();
+      console.log('slot', slot);
+      if (slot.length !== 1) {
+        throw new Error('[polacoms]: The slot `trigger` in PopoverTarget should have exact one child.');
+      }
+
+      const child = slot[0];
+      console.log('children', child.children);
+      if (Array.isArray(child.children)) {
+        if (child.children.length !== 1) {
+          throw new Error('[polacoms]: The slot `trigger` in PopoverTarget should have exact one child.');
+        }
+
+        return child.children[0];
+      } else {
+        return child;
+      }
     },
   };
 </script>
