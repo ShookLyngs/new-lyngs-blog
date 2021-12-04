@@ -17,7 +17,7 @@ Basically, I am a software developer, and I’ve been focusing on frontend devel
 
 I like to play with new frontend stuffs, and if you check my contributions on Github, you’ll find that I’m the person who’s always working on something.
 `,
-  briefButton: 'Github profile',
+  briefButton: 'Github Profile',
 
   frameworkTitle: 'Framework',
   frameworkTitle2: 'options',
@@ -32,7 +32,7 @@ But when I need to develop an app with more native ability, or when I’m gonna 
 
 Many of my works are private, but anyway, you can review my open-source projects on Github.
   `,
-  frameworkButton: 'Github repositories',
+  frameworkButton: 'Github Repositories',
 
   contactTitle: 'Contact',
   contactSubtitle: 'Find me',
