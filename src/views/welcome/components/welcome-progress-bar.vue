@@ -1,11 +1,13 @@
 <template>
-  <div class="flex flex-col justify-end select-none">
+  <div class="progress flex flex-col justify-end select-none cursor-pointer">
     <div class="flex-auto flex flex-col justify-end">
       <div
         class="flex flex-col items-center text-theme-600"
-        :style="{ opacity: opacity, minHeight: `${percentage * 180}%` }"
+        :style="{ minHeight: `${percentage * 180}%` }"
       >
-        <div class="mb-2 text-xl xl:text-2xl font-bold">{{ amount }}</div>
+        <div class="px-3 mb-2 text-xl xl:text-2xl font-bold bg-negative-900">
+          <span :style="{ opacity: opacity }">{{ amount }}</span>
+        </div>
         <div
           class="flex-auto w-2 xl:w-3 min-h-[10px] rounded-t-full bg-theme-500"
           :style="{ opacity: opacity }"
@@ -15,7 +17,7 @@
     </div>
 
     <div
-      class="py-3 w-full text-center text-base xl:text-xl font-bold"
+      class="title py-3 w-full transition text-center text-base xl:text-xl font-bold"
       :class="opacity < 1 ? 'text-positive-400' : 'text-theme-500 bg-negative-800'"
     >
       {{ title }}
@@ -53,6 +55,17 @@
   };
 </script>
 
-<style scoped>
+<style lang="less" scoped>
+  .progress {
+    @apply transition origin-bottom;
 
+    &:hover {
+      transform: scale3d(1.1, 1.1, 1);
+
+      .title {
+        @apply border-4 border-solid border-theme-400;
+        @apply text-theme-600 bg-negative-800;
+      }
+    }
+  }
 </style>

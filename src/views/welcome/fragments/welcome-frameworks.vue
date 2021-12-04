@@ -3,7 +3,7 @@
     <div class="absolute bottom-0 left-0 w-full h-80 bg-theme-500" />
 
     <welcome-container class="relative">
-      <welcome-card-title leading="Framework" suffix="options" />
+      <welcome-card-title :leading="$t('welcome.frameworkTitle')" :suffix="$t('welcome.frameworkTitle2')" />
       <div class="h-4 xl:h-8" />
 
       <welcome-card class="relative bg-negative-900">
@@ -13,9 +13,9 @@
 
         <div class="relative flex flex-col-reverse xl:flex-row">
           <div class="xl:w-[55%]">
-            <markdown-renderer breaks :source="article" />
+            <markdown-renderer breaks :source="$t('welcome.frameworkContent')" />
             <base-button link class="filled mt-12 w-full xl:w-auto" href="https://github.com/ShookLyngs?tab=repositories" target="_blank">
-              Github repositories
+              {{ $t('welcome.frameworkButton') }}
             </base-button>
           </div>
 
@@ -23,8 +23,8 @@
 
           <div class="flex-auto flex flex-col">
             <div class="text-center xl:text-right">
-              <div class="text-xl xl:text-3xl font-bold leading-none text-positive-500">Deployed projects in 2021</div>
-              <div class="text-4xl xl:text-5xl font-bold text-positive-900">Total 50+</div>
+              <div class="text-xl xl:text-3xl font-bold leading-none text-positive-500">{{ $t('welcome.frameworkExperienceTitle') }}</div>
+              <div class="mt-2 xl:mt-0 text-5xl font-bold text-positive-900">{{ $t('welcome.frameworkExperienceSupplement') }}</div>
             </div>
             <div class="h-4" />
             <div class="h-[40vh] xl:h-auto flex-auto grid grid-cols-4">

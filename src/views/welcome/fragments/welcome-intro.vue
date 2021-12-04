@@ -10,10 +10,10 @@
 
           <!-- Intro -->
           <div class="text-4xl xl:text-6xl font-bold select-none text-positive-900">
-            {{ $t('welcome.introText1') }}
+            {{ $t('welcome.introTitle') }}
           </div>
           <div class="mt-1 text-xl xl:text-4xl font-bold select-none text-positive-900">
-            {{ $t('welcome.introText2') }}
+            {{ $t('welcome.introSubtitle') }}
           </div>
 
           <!-- Action buttons -->

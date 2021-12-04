@@ -3,15 +3,15 @@
     <div class="absolute top-0 left-0 w-full h-36 bg-theme-500" />
 
     <welcome-container class="relative">
-      <welcome-card-title theme leading="Contact" id="welcome-contact" />
+      <welcome-card-title theme :leading="$t('welcome.contactTitle')" id="welcome-contact" />
       <div class="h-4 xl:h-8" />
 
       <welcome-card class="relative bg-negative-900">
         <div class="absolute top-0 right-0 w-1/2 xl:w-1/4 h-full bg-contact" />
 
         <div class="relative mx-auto max-w-[500px]">
-          <div class="text-2xl xl:text-4xl font-bold text-center text-positive-500">Find me</div>
-          <div class="text-sm xl:text-base text-center text-positive-300">For job offering and project outsourcing</div>
+          <div class="text-2xl xl:text-4xl font-bold text-center text-positive-500">{{ $t('welcome.contactSubtitle') }}</div>
+          <div class="text-sm xl:text-base text-center text-positive-300">{{ $t('welcome.contactDescription') }}</div>
           <div class="h-8 xl:h-10" />
 
           <!-- Github -->
@@ -29,7 +29,7 @@
           </div>
 
           <!-- Email -->
-          <div class="mb-3 px-4 py-3 flex justify-between items-center bg-negative-700">
+          <div class="mb-3 px-4 py-3 xl:px-5 xl:py-4 flex justify-between items-center bg-negative-700">
             <div class="flex-auto overflow-hidden">
               <div class="text-xs xl:text-lg text-positive-400">Email</div>
               <div class="text-base xl:text-xl font-bold truncate text-positive-900">shook-lyngs@foxmail.com</div>
@@ -53,8 +53,8 @@
             </popover>
           </div>
 
-          <base-button link class="filled mt-6 w-full" href="" target="_blank">Chat on Telegram</base-button>
-          <base-button class="outlined mt-3 w-full">Resume</base-button>
+          <base-button link class="filled mt-6 w-full" href="" target="_blank">{{ $t('welcome.contactTelegramButton') }}</base-button>
+          <base-button class="outlined mt-3 w-full">{{ $t('welcome.contactResumeButton') }}</base-button>
         </div>
       </welcome-card>
     </welcome-container>
