@@ -19,8 +19,8 @@
   import { Scrollbar } from 'polacoms';
 
   // Fragments
-  import WelcomeHeader from './fragments/welcome-header.vue';
-  import WelcomeFooter from './fragments/welcome-footer.vue';
+  import WelcomeHeader from './layouts/welcome-header.vue';
+  import WelcomeFooter from './layouts/welcome-footer.vue';
   import WelcomeIntro from './fragments/welcome-intro.vue';
   import WelcomeBrief from './fragments/welcome-brief.vue';
   import WelcomeFrameworks from './fragments/welcome-frameworks.vue';

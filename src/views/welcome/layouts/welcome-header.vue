@@ -6,52 +6,41 @@
         <span class="">LyngsBlog</span>
       </div>
 
-      <div>
-        <popover placement="bottom" trigger="hover">
-          <template #trigger>
-            <div class="relative button inline-flex items-center select-none transition text-positive-800 xl:text-negative-900 hover:opacity-80 active:opacity-60">
-              <span class="">{{ $t('common.language') }}</span>
-              <span class="decorator h-4 w-4 ml-2 rounded-full bg-positive-100 xl:bg-negative-900" />
-            </div>
-          </template>
-
-          <div>
-            content
-          </div>
-        </popover>
-      </div>
+      <welcome-locale-popper>
+        <div class="relative button py-1 inline-flex items-center select-none transition text-positive-800 xl:text-negative-900 hover:opacity-80 active:opacity-60">
+          <span class="mr-1">{{ $t('common.language') }}</span>
+          <icon class="decorator text-xl text-positive-100 xl:text-negative-900">
+            <language-round />
+          </icon>
+        </div>
+      </welcome-locale-popper>
     </div>
   </div>
 </template>
 
 <script>
   // Components
-  import Popover from '@/components/popover';
+  import WelcomeLocalePopper from '../components/welcome-locale-popper.vue';
+  import { LanguageRound } from '@vicons/material';
+  import { Icon } from '@vicons/utils';
   // Functions
   import { computed } from 'vue';
-  import { useI18n } from 'vue-i18n';
   import { useScrollbar } from 'polacoms';
 
   export default {
     name: 'welcome-header',
     components: {
-      Popover,
+      WelcomeLocalePopper,
+      Icon,
+      LanguageRound,
     },
     setup() {
       // Scrollbar
       const { wrapperSize } = useScrollbar();
       const scrollTop = computed(() => wrapperSize.value?.scrollTop ?? 0);
 
-      // Locale
-      const { locale } = useI18n();
-      function toggleLocale() {
-        locale.value = locale.value === 'zh'? 'en' : 'zh';
-      }
-
       return {
         scrollTop,
-
-        toggleLocale,
       };
     },
   };
@@ -70,7 +59,7 @@
         @apply text-positive-800;
       }
       .decorator {
-        @apply bg-positive-100;
+        @apply text-positive-100;
       }
     }
   }
