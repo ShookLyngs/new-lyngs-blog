@@ -19,13 +19,13 @@
       <div class="h-px w-full bg-negative-700" />
 
       <div class="py-4 flex flex-col">
-        <button class="button" @click="setLocale('zh')">
+        <button class="button" :class="{ 'is-active': isLocale('zh') }" @click="setLocale('zh')">
           <span>简体中文</span>
           <icon class="icon">
             <arrow-forward-round />
           </icon>
         </button>
-        <button class="button" @click="setLocale('en')">
+        <button class="button" :class="{ 'is-active': isLocale('en') }" @click="setLocale('en')">
           <span>English</span>
           <icon class="icon">
             <arrow-forward-round />
@@ -58,6 +58,9 @@
 
       // Locale
       const { locale } = useI18n();
+      function isLocale(name) {
+        return locale.value === name;
+      }
       function setLocale(name) {
         locale.value = name;
         localStorage.setItem('locale', name);
@@ -67,6 +70,7 @@
 
       return {
         popover,
+        isLocale,
         setLocale,
       };
     },
@@ -75,9 +79,14 @@
 
 <style lang="less" scoped>
   .button {
-    @apply body-x h-12 flex justify-between items-center transition cursor-pointer select-none;
+    @apply relative body-x h-12 flex justify-between items-center transition cursor-pointer select-none;
     @apply hover:bg-negative-700 active:bg-negative-600;
 
+    &::before {
+      @apply transition-all absolute left-0 top-0 h-full;
+      content: '';
+      width: 0;
+    }
     .icon {
       @apply transition ml-1 text-xl text-theme-500 opacity-0 transform;
     }
@@ -85,6 +94,15 @@
     &:hover {
       .icon {
         @apply opacity-100 translate-x-1;
+      }
+    }
+
+    &.is-active {
+      @apply bg-negative-800 hover:bg-negative-700 active:bg-negative-600;
+
+      &::before {
+        @apply bg-theme-400;
+        width: 5px;
       }
     }
   }

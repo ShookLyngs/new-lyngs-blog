@@ -33,7 +33,7 @@ export default createTheme({
       },
       theme: {
         default: '#073EFF',
-        50: '#cdd8ff',
+        50: '#edf1ff',
         100: '#b5c5ff',
         200: '#839fff',
         300: '#5178ff',

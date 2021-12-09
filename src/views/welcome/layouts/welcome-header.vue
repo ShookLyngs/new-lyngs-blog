@@ -20,9 +20,9 @@
 
 <script>
   // Components
-  import WelcomeLocalePopper from '../components/welcome-locale-popper.vue';
-  import { LanguageRound } from '@vicons/material';
   import { Icon } from '@vicons/utils';
+  import { LanguageRound } from '@vicons/material';
+  import WelcomeLocalePopper from '../components/welcome-locale-popper.vue';
   // Functions
   import { computed } from 'vue';
   import { useScrollbar } from 'polacoms';
@@ -30,9 +30,9 @@
   export default {
     name: 'welcome-header',
     components: {
-      WelcomeLocalePopper,
       Icon,
       LanguageRound,
+      WelcomeLocalePopper,
     },
     setup() {
       // Scrollbar
