@@ -14,7 +14,7 @@
         </div>
         <div
           class="bar flex-auto w-2.5 xl:w-3 min-h-[10px] rounded-t-full transition-all bg-gradient-to-t from-theme-200 to-theme-500"
-          :style="{ opacity: opacity }"
+          :style="{ opacity: hover ? 1 : opacity }"
           :class="barClass"
         />
       </div>
