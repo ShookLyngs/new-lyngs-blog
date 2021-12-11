@@ -4,7 +4,7 @@
       <slot />
     </template>
 
-    <div class="xl:w-[240px]">
+    <div class="w-[240px]">
       <div class="relative body-x py-4 flex justify-between items-center select-none overflow-hidden">
         <icon class="absolute top-0 right-0 transform translate-x-1/4 -translate-y-1/4 text-8xl text-negative-800">
           <language-round />
